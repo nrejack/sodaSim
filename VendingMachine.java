@@ -24,7 +24,7 @@ class VendingMachine {
 
     public static void main(String[] args) {
         System.out.println("Welcome to SodaSim version 0.1");
-        )
+        
     }
 
 }
