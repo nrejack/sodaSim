@@ -1,7 +1,7 @@
 class VendingMachine {
     // Simulate a vending machine
 
-    private static String version = '0.1';
+    private static String version = "0.1";
 
     private Slot[] slots; // hold cans of soda in each slots
     private int quarters, dimes, nickels, dollar_coins, dollar_bills;
@@ -15,7 +15,7 @@ class VendingMachine {
         this.repairStatus = 0;
     }
 
-    public VendingMachine(int slotCount, canBeRocked, repairStatus) {
+    public VendingMachine(int slotCount, boolean canBeRocked, double repairStatus) {
         this.slots = Slot[slotCount];
         this.quarters = this.dimes = this.nickles = this.dollar_coins = this.dollar_bills = 0;
         this.canBeRocked = canBeRocked;
