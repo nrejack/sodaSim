@@ -68,7 +68,7 @@ class VendingMachine {
 	myVendingMachine.loadSoda(drPebble, 2, 12);
 	myVendingMachine.loadSoda(hackerFuel, 3, 10);
 	myVendingMachine.loadSoda(zenJuice, 4, 8);
-	myVendingMachine.loadSoda(sportsBall, 5, 10)
+	myVendingMachine.loadSoda(sportsBall, 5, 10);
 
 	System.out.println("Vending Machine loaded. Make a selection: ");
 	System.out.println("(1) Show list of buttons on machine");
