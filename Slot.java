@@ -18,7 +18,7 @@ class Slot {
         return this.count;
     }
 
-    public int getSoda() {
+    public Soda getSoda() {
         return this.soda;
     }
 }
