@@ -10,14 +10,14 @@ class VendingMachine {
 
     public VendingMachine() { // default constructor
         this.slots = Slot[0];
-        this.quarters, this.dimes, this.nickles, this.dollar_coins, this.dollars_bills = 0;
+        this.quarters = this.dimes = this.nickles = this.dollar_coins = this.dollar_bills = 0;
         this.canBeRocked = false;
         this.repairStatus = 0;
     }
 
     public VendingMachine(int slotCount, canBeRocked, repairStatus) {
         this.slots = Slot[slotCount];
-        this.quarters, this.dimes, this.nickles, this.dollar_coins, this.dollars_bills = 0;
+        this.quarters = this.dimes = this.nickles = this.dollar_coins = this.dollar_bills = 0;
         this.canBeRocked = canBeRocked;
         this.repairStatus = repairStatus;
     }
