@@ -10,7 +10,7 @@ class Soda {
         this.price = .25;
     }
 
-    public Soda() {
+    public Soda(name, flavor, price) {
         this.name = name;
         this.flavor = flavor;
         this.price = price;
