@@ -7,7 +7,7 @@ class Soda {
     public Soda() {
         this.name = "Generic Soda brand Soda";
         this.flavor = "Tastes like generic soda that fell behind the shelf.";
-        this.price = ".25";
+        this.price = .25;
     }
 
     public Soda() {
