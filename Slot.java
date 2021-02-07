@@ -21,4 +21,9 @@ class Slot {
     public Soda getSoda() {
         return this.soda;
     }
+
+    public void loadSoda(Soda soda, int count) {
+	    this.soda = soda;
+	    this.count = count;
+    }
 }
