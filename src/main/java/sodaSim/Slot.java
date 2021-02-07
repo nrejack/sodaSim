@@ -1,3 +1,5 @@
+package sodaSim;
+
 class Slot {
     // Simulate the slots on a vending machine
 

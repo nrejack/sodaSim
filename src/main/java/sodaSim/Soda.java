@@ -1,3 +1,5 @@
+package sodaSim;
+
 class Soda {
     // simulate a soda
     private String name;

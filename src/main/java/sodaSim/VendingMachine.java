@@ -1,3 +1,5 @@
+package sodaSim;
+
 class VendingMachine {
     // Simulate a vending machine
 
