@@ -9,14 +9,14 @@ class VendingMachine {
     private double repairStatus; // range from 0 to 1, as it approaches 1 issues come up
 
     public VendingMachine() { // default constructor
-        this.slots = Slot[0];
+        this.slots = new Slot[0];
         this.quarters = this.dimes = this.nickels = this.dollar_coins = this.dollar_bills = 0;
         this.canBeRocked = false;
         this.repairStatus = 0;
     }
 
     public VendingMachine(int slotCount, boolean canBeRocked, double repairStatus) {
-        this.slots = Slot[slotCount];
+        this.slots = new Slot[slotCount];
         this.quarters = this.dimes = this.nickels = this.dollar_coins = this.dollar_bills = 0;
         this.canBeRocked = canBeRocked;
         this.repairStatus = repairStatus;
