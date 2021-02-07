@@ -10,7 +10,7 @@ class Soda {
         this.price = .25;
     }
 
-    public Soda(name, flavor, price) {
+    public Soda(String name, String flavor, double price) {
         this.name = name;
         this.flavor = flavor;
         this.price = price;
