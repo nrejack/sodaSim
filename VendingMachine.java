@@ -36,6 +36,18 @@ class VendingMachine {
 	}
     }
 
+    public void sodaMenu() {
+	    // show a menu of the available sodas
+	System.out.println("Button\t\tName");
+	for(Slot s: this.slots) {
+		System.out.print(s.getSoda().getName());
+	}
+    }
+
+    public void depositCash() {
+	    System.out.println("Lucky for you, all sodas are free right now.");
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to SodaSim version 0.1");
         VendingMachine myVendingMachine = new VendingMachine(6, false, 0);
@@ -55,6 +67,13 @@ class VendingMachine {
 	myVendingMachine.loadSoda(hackerFuel, 3, 10);
 	myVendingMachine.loadSoda(zenJuice, 4, 8);
 	myVendingMachine.loadSoda(sportsBall, 5, 10);
+
+	System.out.println("Vending Machine loaded. Make a selection: ");
+	System.out.println("(1) Show list of buttons on machine");
+	System.out.println("(2) Put money in");
+	myVendingMachine.sodaMenu();
+
     }
 
 }
+
