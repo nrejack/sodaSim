@@ -1,5 +1,7 @@
 package sodaSim;
 
+import java.util.Scanner;
+
 class VendingMachine {
     // Simulate a vending machine
 
@@ -50,32 +52,13 @@ class VendingMachine {
 	    System.out.println("Lucky for you, all sodas are free right now.");
     }
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to SodaSim version 0.1");
-        VendingMachine myVendingMachine = new VendingMachine(6, false, 0);
-	
-	Soda joke = new Soda("Joke-A-Cola", "This is the archetypical soda. Brown and fizzy.", 1.50);
-	Soda dietJoke = new Soda("Diet Joke", "A little metallic tasting, but just like the real thing.", 1.25);
-	Soda drPebble = new Soda("Dr Pebble", "Tastes familar, like a rusty cherry.", 1.0);
-	Soda hackerFuel = new Soda("Hacker Fuel", "Highly caffeinated for late night coding sessions", 2.5);
-	Soda zenJuice = new Soda("ZenJuice", "World peace via a mass-produced beverage", 1.75);
-	Soda sportsBall = new Soda("SportsBall", "No one who exercises has ever drank this. Flavor: green", 2.25);
-       
-       	System.out.println(myVendingMachine.getSlotCount());
-
-	myVendingMachine.loadSoda(joke, 0, 12);
-	myVendingMachine.loadSoda(dietJoke, 1, 12);
-	myVendingMachine.loadSoda(drPebble, 2, 12);
-	myVendingMachine.loadSoda(hackerFuel, 3, 10);
-	myVendingMachine.loadSoda(zenJuice, 4, 8);
-	myVendingMachine.loadSoda(sportsBall, 5, 10);
-
-	System.out.println("Vending Machine loaded. Make a selection: ");
+    public void menu(Scanner scanner) {
+	    // display menu
+	    
 	System.out.println("(1) Show list of buttons on machine");
 	System.out.println("(2) Put money in");
-	myVendingMachine.sodaMenu();
-
+	System.out.print("Your selection: ");
+	int selection = scanner.nextInt();
     }
-
 }
 
