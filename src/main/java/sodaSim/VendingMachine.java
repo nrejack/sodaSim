@@ -42,9 +42,11 @@ class VendingMachine {
 
     public void sodaMenu() {
 	    // show a menu of the available sodas
-	System.out.println("Button\t\tName");
+	System.out.println("Button\tName");
+	int i = 1;
 	for(Slot s: this.slots) {
-		System.out.print(s.getSoda().getName());
+		System.out.println("(" + i + ")\t" + s.getSoda().getName());
+		i++;
 	}
     }
 
@@ -52,13 +54,40 @@ class VendingMachine {
 	    System.out.println("Lucky for you, all sodas are free right now.");
     }
 
+    public void lookSoda(Scanner scanner) {
+	    System.out.print("Which soda do you want to look at? ");
+	    int selection = scanner.nextInt();
+    }
+
+    public void pushButton(Scanner scanner) {
+	    System.out.print("Which number button to push? ");
+	    int selection = scanner.nextInt();
+    }
+
     public void menu(Scanner scanner) {
 	    // display menu
-	    
-	System.out.println("(1) Show list of buttons on machine");
-	System.out.println("(2) Put money in");
-	System.out.print("Your selection: ");
-	int selection = scanner.nextInt();
+	 
+	while (true) {
+		System.out.println("(1) Show list of buttons on machine");
+		System.out.println("(2) Put money in");
+		System.out.println("(3) Look at a soda slot");
+		System.out.println("(4) Push a soda button");
+		System.out.println("(9) Walk away.");
+		System.out.print("Your selection: ");
+		int selection = scanner.nextInt();
+		if (selection == 1)
+			sodaMenu();
+		else if (selection == 2)
+			depositCash();
+		else if (selection == 3)
+			lookSoda(scanner);
+		else if (selection == 4)
+			pushButton(scanner);
+		else if (selection == 9)
+			System.out.println("Thanks for visiting the soda machine.");
+			System.exit(0);
+		selection = scanner.nextInt();
+	}
     }
 }
 
