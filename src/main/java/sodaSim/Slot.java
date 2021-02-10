@@ -20,6 +20,10 @@ class Slot {
         return this.count;
     }
 
+    public void decCount() {
+	    this.count--;
+    }
+
     public Soda getSoda() {
         return this.soda;
     }
