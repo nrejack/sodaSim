@@ -2,6 +2,16 @@ package sodaSim;
 
 import java.util.Scanner;
 
+
+/**
+* sodaSim is a vending machine simulator. 
+* This is intended as a play example for thinking about OOP
+* design and nothing more.
+* 
+* @author Nicholas Rejack
+* @version 0
+* @since 2021-02-07
+*/
 public class sodaSim {
 	
     public static void main(String[] args) {
