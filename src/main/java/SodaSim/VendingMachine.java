@@ -1,4 +1,4 @@
-package sodaSim;
+package SodaSim;
 
 import java.util.Scanner;
 

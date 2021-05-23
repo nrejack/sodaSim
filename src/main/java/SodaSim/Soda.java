@@ -1,4 +1,4 @@
-package sodaSim;
+package SodaSim;
 
 class Soda {
     // simulate a soda
