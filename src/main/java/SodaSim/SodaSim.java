@@ -24,8 +24,8 @@ public class SodaSim {
 	Soda hackerFuel = new Soda("Hacker Fuel", "Highly caffeinated for late night coding sessions", 2.5);
 	Soda zenJuice = new Soda("ZenJuice", "World peace via a mass-produced beverage", 1.75);
 	Soda sportsBall = new Soda("SportsBall", "No one who exercises has ever drank this. Flavor: green", 2.25);
-        Soda flOrange = new Soda("Florida Orange", "Tastes exactly like an artificial orange.", 1.75); 
-       	System.out.println("There are " + myVendingMachine.getSlotCount() + " slots in the vending machine.");
+    Soda flOrange = new Soda("Florida Orange", "Tastes exactly like an artificial orange.", 1.75); 
+ 	System.out.println("There are " + myVendingMachine.getSlotCount() + " slots in the vending machine.");
 
 	myVendingMachine.loadSoda(joke, 0, 12);
 	myVendingMachine.loadSoda(dietJoke, 1, 12);

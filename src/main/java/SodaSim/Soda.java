@@ -4,7 +4,7 @@ class Soda {
     // simulate a soda
     private String name;
     private String flavor;
-    private double price;
+    private float price;
 
     public Soda() {
         this.name = "Generic Soda brand Soda";
@@ -12,7 +12,7 @@ class Soda {
         this.price = .25;
     }
 
-    public Soda(String name, String flavor, double price) {
+    public Soda(String name, String flavor, float price) {
         this.name = name;
         this.flavor = flavor;
         this.price = price;
@@ -26,7 +26,7 @@ class Soda {
         return this.flavor;
     }
 
-    public double getPrice() {
+    public float getPrice() {
         return this.price;
     }
 
