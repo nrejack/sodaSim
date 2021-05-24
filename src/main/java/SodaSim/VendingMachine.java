@@ -1,6 +1,7 @@
 package SodaSim;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 class VendingMachine {
     // Simulate a vending machine
@@ -8,22 +9,28 @@ class VendingMachine {
     private static String version = "0.1";
 
     private Slot[] slots; // hold cans of soda in each slots
-    private int quarters, dimes, nickels, dollar_coins, dollar_bills;
-    private boolean canBeRocked; 
+    //private int quarters, dimes, nickels, dollar_coins, dollar_bills;
+    private CashBox myCashBox = new CashBox();
+	private boolean canBeRocked; 
     private double repairStatus; // range from 0 to 1, as it approaches 1 issues come up
+	ArrayList<Cash> holding;  // where money put into the machine waits
 
     public VendingMachine() { // default constructor
         this.slots = new Slot[0];
-        this.quarters = this.dimes = this.nickels = this.dollar_coins = this.dollar_bills = 0;
-        this.canBeRocked = false;
+        //this.quarters = this.dimes = this.nickels = this.dollar_coins = this.dollar_bills = 0;
+        this.myCashBox = new CashBox();
+		this.canBeRocked = false;
         this.repairStatus = 0;
+		this.holding = new ArrayList<Cash>();
     }
 
     public VendingMachine(int slotCount, boolean canBeRocked, double repairStatus) {
         this.slots = new Slot[slotCount];
-        this.quarters = this.dimes = this.nickels = this.dollar_coins = this.dollar_bills = 0;
-        this.canBeRocked = canBeRocked;
+        //this.quarters = this.dimes = this.nickels = this.dollar_coins = this.dollar_bills = 0;
+        this.myCashBox = new CashBox();
+		this.canBeRocked = canBeRocked;
         this.repairStatus = repairStatus;
+		this.holding = new ArrayList<Cash>();
     }
 
     public int getSlotCount() {
@@ -51,25 +58,68 @@ class VendingMachine {
 	}
     }
 
-    public void depositCash() {
-	    System.out.println("Lucky for you, all sodas are free right now.");
+    public void depositCash(Scanner scanner) {
+		while (true) {
+			System.out.print("\nCurrently inserted: $");
+			System.out.print(Cash.getValue(this.holding) + "\n");
+			System.out.println("How much money do you want to put in?");
+			System.out.println("(1) Dollar bill");
+			System.out.println("(2) Dollar coin");
+			System.out.println("(3) Quarter");
+			System.out.println("(4) Dime");
+			System.out.println("(5) Nickel");
+			System.out.println("(6) Go back");
+			int selection = scanner.nextInt();
+			if (selection == 1) {
+				this.holding.add(Cash.DOLLARBILL);
+				continue;
+			}
+			else if (selection == 2) {
+				this.holding.add(Cash.DOLLARCOIN);
+				continue;
+			}
+			else if (selection == 3) {
+				this.holding.add(Cash.QUARTER);
+				continue;
+			}
+			else if (selection == 4) {
+				this.holding.add(Cash.DIME);
+				continue;
+			}
+			else if (selection == 5) {
+				this.holding.add(Cash.NICKEL);
+				continue;
+			}
+			else if (selection == 6) {
+				break;
+			}
+		}
+	    //System.out.println("Lucky for you, all sodas are free right now.");
     }
 
     public void lookSoda(Scanner scanner) {
 	    System.out.print("Which soda do you want to look at? ");
 	    int selection = scanner.nextInt();
 	    Soda soda = this.slots[selection -1].getSoda();
-	    System.out.println("\n" + soda.getName());
-	    System.out.println(soda.getFlavor());
+	    System.out.print("\n" + soda.getName());
+		System.out.print(" $" + String.format("%.2f", soda.getPrice()));
+	    System.out.println("\n" + soda.getFlavor());
     }
 
     public void pushButton(Scanner scanner) {
 	    System.out.print("Which number button to push? ");
 	    int selection = scanner.nextInt();
 	    Soda soda = this.slots[selection -1].getSoda();
+		double price = soda.getPrice();
+		double curr_val = Cash.getValue(this.holding);
 	    if (this.slots[selection -1].getCount() == 0) {
 		System.out.println("Sorry. No more " + soda.getName() + " left.");
     		}
+		else if (price > curr_val) {
+			System.out.println("\n" + soda.getName() + " is " + String.format("$%.2f", price));
+			System.out.println("This machine only has " + String.format("$%.2f", curr_val));
+			System.out.println("Please deposit more money.");
+		}
 	    else {	    
 	    vendSoda(soda);
 	    this.slots[selection -1].decCount();
@@ -77,6 +127,7 @@ class VendingMachine {
     }
 
     public void vendSoda(Soda soda) {
+
 	    System.out.println("\nKER-CHUNK!");
 	    System.out.println("A cold can of " + soda.getName() + " falls down into the dispensing slot.");
     }
@@ -98,7 +149,7 @@ class VendingMachine {
 			continue;
 		}
 		else if (selection == 2) {
-			depositCash();
+			depositCash(scanner);
 			continue;
 		}
 		else if (selection == 3) {

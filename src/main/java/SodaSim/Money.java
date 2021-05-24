@@ -1,15 +1,33 @@
 package SodaSim;
 /* stretch exercise: expand this to work with other kinds of money. 
 Refer to the OOP design patterns book */
-public class Money {
-    int halfdollars, quarters, dimes, nickles;
-    int dollars;
+public abstract class Money {
+    float value;
+    String name;
 
-    public Money() {
-        halfdollars = 0;
-        quarters = 0;
-        dimes = 0;
-        nickles = 0;
-        dollars = 0;    
+    public void Money() {
+        this.value = 0;
+        this.name = "No name given";
+    }
+
+    public void Money(float value, String name) {
+        this.value = value;
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public float getValue() {
+        return this.value;
+    }
+
+    public void setValue(float value) {
+        this.value = value;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
     }
 }
