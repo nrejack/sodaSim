@@ -1,5 +1,7 @@
 package SodaSim;
 
+import java.util.ArrayList;
+
 public enum Cash {
 	DOLLARBILL("Dollar bill", 1.0),
 	DOLLARCOIN("Dollar coin", 1.0),
@@ -14,4 +16,15 @@ public enum Cash {
 		this.label = label;
 		this.value = value;
 	}
+
+    public static double getValue(ArrayList<Cash> holding) {
+        double sum = 0.0;
+        if (holding.size() == 0)
+            return sum;
+        for (int i = 0; i < holding.size(); i++) {
+            sum += holding.get(i).value;
+        }
+        return sum;
+    }
+
 }

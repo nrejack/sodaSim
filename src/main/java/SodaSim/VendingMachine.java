@@ -1,7 +1,7 @@
 package SodaSim;
 
 import java.util.Scanner;
-import java.util.	ArrayList;
+import java.util.ArrayList;
 
 class VendingMachine {
     // Simulate a vending machine
@@ -60,6 +60,8 @@ class VendingMachine {
 
     public void depositCash(Scanner scanner) {
 		while (true) {
+			System.out.print("\nCurrently inserted: $");
+			System.out.print(Cash.getValue(this.holding) + "\n");
 			System.out.println("How much money do you want to put in?");
 			System.out.println("(1) Dollar bill");
 			System.out.println("(2) Dollar coin");
@@ -99,17 +101,25 @@ class VendingMachine {
 	    System.out.print("Which soda do you want to look at? ");
 	    int selection = scanner.nextInt();
 	    Soda soda = this.slots[selection -1].getSoda();
-	    System.out.println("\n" + soda.getName());
-	    System.out.println(soda.getFlavor());
+	    System.out.print("\n" + soda.getName());
+		System.out.print(" $" + String.format("%.2f", soda.getPrice()));
+	    System.out.println("\n" + soda.getFlavor());
     }
 
     public void pushButton(Scanner scanner) {
 	    System.out.print("Which number button to push? ");
 	    int selection = scanner.nextInt();
 	    Soda soda = this.slots[selection -1].getSoda();
+		double price = soda.getPrice();
+		double curr_val = Cash.getValue(this.holding);
 	    if (this.slots[selection -1].getCount() == 0) {
 		System.out.println("Sorry. No more " + soda.getName() + " left.");
     		}
+		else if (price > curr_val) {
+			System.out.println("\n" + soda.getName() + " is " + String.format("$%.2f", price));
+			System.out.println("This machine only has " + String.format("$%.2f", curr_val));
+			System.out.println("Please deposit more money.");
+		}
 	    else {	    
 	    vendSoda(soda);
 	    this.slots[selection -1].decCount();
