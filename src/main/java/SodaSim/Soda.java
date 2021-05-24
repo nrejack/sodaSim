@@ -1,10 +1,10 @@
-package SodaSim;
+package oop_practice;
 
 class Soda {
     // simulate a soda
     private String name;
     private String flavor;
-    private float price;
+    private double price;
 
     public Soda() {
         this.name = "Generic Soda brand Soda";
@@ -12,7 +12,7 @@ class Soda {
         this.price = .25;
     }
 
-    public Soda(String name, String flavor, float price) {
+    public Soda(String name, String flavor, double price) {
         this.name = name;
         this.flavor = flavor;
         this.price = price;
@@ -26,7 +26,7 @@ class Soda {
         return this.flavor;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return this.price;
     }
 

@@ -1,4 +1,4 @@
-package SodaSim;
+package oop_practice;
 
 import java.util.Scanner;
 
@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class SodaSim {
 	
     public static void main(String[] args) {
-        System.out.println("Welcome to SodaSim version 0.1");
-        VendingMachine myVendingMachine = new VendingMachine(7, false, 0);
+    System.out.println("Welcome to SodaSim version 0.1");
+    VendingMachine myVendingMachine = new VendingMachine(7, false, 0);
 	
 	Soda joke = new Soda("Joke-A-Cola", "This is the archetypical soda. Brown and fizzy.", 1.50);
 	Soda dietJoke = new Soda("Diet Joke", "A little metallic tasting, but just like the real thing.", 1.25);

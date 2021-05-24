@@ -1,6 +1,7 @@
-package SodaSim;
+package oop_practice;
 
 import java.util.Scanner;
+import java.util.	ArrayList;
 
 class VendingMachine {
     // Simulate a vending machine
@@ -9,9 +10,10 @@ class VendingMachine {
 
     private Slot[] slots; // hold cans of soda in each slots
     //private int quarters, dimes, nickels, dollar_coins, dollar_bills;
-    private myCashBox = new CashBox();
+    private CashBox myCashBox = new CashBox();
 	private boolean canBeRocked; 
     private double repairStatus; // range from 0 to 1, as it approaches 1 issues come up
+	ArrayList<Cash> holding;  // where money put into the machine waits
 
     public VendingMachine() { // default constructor
         this.slots = new Slot[0];
@@ -19,6 +21,7 @@ class VendingMachine {
         this.myCashBox = new CashBox();
 		this.canBeRocked = false;
         this.repairStatus = 0;
+		this.holding = new ArrayList<Cash>();
     }
 
     public VendingMachine(int slotCount, boolean canBeRocked, double repairStatus) {
@@ -27,6 +30,7 @@ class VendingMachine {
         this.myCashBox = new CashBox();
 		this.canBeRocked = canBeRocked;
         this.repairStatus = repairStatus;
+		this.holding = new ArrayList<Cash>();
     }
 
     public int getSlotCount() {
@@ -54,8 +58,41 @@ class VendingMachine {
 	}
     }
 
-    public void depositCash() {
-	    System.out.println("Lucky for you, all sodas are free right now.");
+    public void depositCash(Scanner scanner) {
+		while (true) {
+			System.out.println("How much money do you want to put in?");
+			System.out.println("(1) Dollar bill");
+			System.out.println("(2) Dollar coin");
+			System.out.println("(3) Quarter");
+			System.out.println("(4) Dime");
+			System.out.println("(5) Nickel");
+			System.out.println("(6) Go back");
+			int selection = scanner.nextInt();
+			if (selection == 1) {
+				this.holding.add(Cash.DOLLARBILL);
+				continue;
+			}
+			else if (selection == 2) {
+				this.holding.add(Cash.DOLLARCOIN);
+				continue;
+			}
+			else if (selection == 3) {
+				this.holding.add(Cash.QUARTER);
+				continue;
+			}
+			else if (selection == 4) {
+				this.holding.add(Cash.DIME);
+				continue;
+			}
+			else if (selection == 5) {
+				this.holding.add(Cash.NICKEL);
+				continue;
+			}
+			else if (selection == 6) {
+				break;
+			}
+		}
+	    //System.out.println("Lucky for you, all sodas are free right now.");
     }
 
     public void lookSoda(Scanner scanner) {
@@ -80,6 +117,7 @@ class VendingMachine {
     }
 
     public void vendSoda(Soda soda) {
+
 	    System.out.println("\nKER-CHUNK!");
 	    System.out.println("A cold can of " + soda.getName() + " falls down into the dispensing slot.");
     }
@@ -101,7 +139,7 @@ class VendingMachine {
 			continue;
 		}
 		else if (selection == 2) {
-			depositCash();
+			depositCash(scanner);
 			continue;
 		}
 		else if (selection == 3) {

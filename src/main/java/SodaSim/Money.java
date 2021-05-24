@@ -1,4 +1,4 @@
-package SodaSim;
+package oop_practice;
 /* stretch exercise: expand this to work with other kinds of money. 
 Refer to the OOP design patterns book */
 public abstract class Money {
@@ -24,7 +24,7 @@ public abstract class Money {
     }
 
     public void setValue(float value) {
-        this.value = val;
+        this.value = value;
     }
     
     public void setName(String name) {
