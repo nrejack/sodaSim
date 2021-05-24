@@ -1,4 +1,4 @@
-package oop_practice;
+package SodaSim;
 
 class Soda {
     // simulate a soda

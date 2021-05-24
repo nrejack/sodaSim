@@ -1,4 +1,4 @@
-package oop_practice;
+package SodaSim;
 /* stretch exercise: expand this to work with other kinds of money. 
 Refer to the OOP design patterns book */
 public abstract class Money {

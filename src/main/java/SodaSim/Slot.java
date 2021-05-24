@@ -1,4 +1,4 @@
-package oop_practice;
+package SodaSim;
 
 class Slot {
     // Simulate the slots on a vending machine

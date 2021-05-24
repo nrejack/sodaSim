@@ -1,4 +1,4 @@
-package oop_practice;
+package SodaSim;
 
 import java.util.Scanner;
 

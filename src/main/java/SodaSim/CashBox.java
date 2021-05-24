@@ -1,4 +1,4 @@
-package oop_practice;
+package SodaSim;
 
 public class CashBox {
     private int quarters, dimes, nickles, dollar_coins;
